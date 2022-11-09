@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "227468016350",
+    "project_id": "simplemarketlist",
+    "storage_bucket": "simplemarketlist.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:227468016350:android:2013be2db1e8d470a1204f",
+        "android_client_info": {
+          "package_name": "com.example.simplemarketlist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "227468016350-ak6crtqfaklfvsrcr8oqt3pbtbt1l1ta.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaFye5RqLXe5lkN7IR6leH522pKK5I59A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "227468016350-ak6crtqfaklfvsrcr8oqt3pbtbt1l1ta.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
