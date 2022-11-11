@@ -1,0 +1,16 @@
+app/src/main/java/com/stimednp/crudfirebasefirestore/TestActivity.kt
+app/src/main/res/layout/activity_test.xml
+*.iml
+/SimpleMarketList/.gradle
+/SimpleMarketList/local.properties
+/SimpleMarketList/.idea/caches
+/SimpleMarketList/.idea/libraries
+/SimpleMarketList/.idea/modules.xml
+/SimpleMarketList/.idea/workspace.xml
+/SimpleMarketList/.idea/navEditor.xml
+/SimpleMarketList/.idea/assetWizardSettings.xml
+.DS_Store
+/SimpleMarketList/build
+/captures
+.externalNativeBuild
+.cxx

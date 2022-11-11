@@ -7,6 +7,9 @@
         android:id="@+id/nav_Sobre"
         android:title="@string/sobre"/>
     <item
+        android:id="@+id/nav_Mapa"
+        android:title="@string/mapa"/>
+    <item
         android:id="@+id/nav_LogOut"
         android:title="@string/logout"/>
 </menu>
