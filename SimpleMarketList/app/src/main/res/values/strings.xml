@@ -4,6 +4,8 @@
     <string name="menu_home_home">Home</string>
     <string name="menu_home_profile">Perfil</string>
 
+    <string name="aboutUs_descrption">A Simple Market List funciona como assistente para suas compras de mercado.  Criado por 3 empreendedores , Daianne, está à frente na evolução da experiência do cliente , Leonardo, está à frente da área técnica e Márcio, está à frente da área de negócios. O nome da startup é auto explicativo , Simple Market List ou SML, em português, Simples Lista de Mercado. A escolha de utilizar a língua inglesa para poder exportar a utilização do App, estendendo as mesmas funcionalidades em diversos lugares do mundo. Este é um aplicativo para montar sua lista. 🚀🚀</string>
+
     <string name="label_username">SEU NOME</string>
     <string name="label_phone">TELEFONE</string>
     <string name="label_email">E-MAIL</string>
