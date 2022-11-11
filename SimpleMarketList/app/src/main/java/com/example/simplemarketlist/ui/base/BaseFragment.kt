@@ -6,6 +6,7 @@ import android.widget.FrameLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.simplemarketlist.MainActivity
 import com.example.simplemarketlist.R
 
 abstract class BaseFragment : Fragment() {
@@ -31,5 +32,13 @@ abstract class BaseFragment : Fragment() {
 
     fun showMessage(message: String?) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+    }
+
+    fun showToolBar(){
+        (activity as MainActivity?)!!.setDrawer_unlocked()
+    }
+
+    fun hideToolBar(){
+        (activity as MainActivity?)!!.setDrawer_locked()
     }
 }

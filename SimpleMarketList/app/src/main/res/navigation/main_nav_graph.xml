@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/nav_Home">
     <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/nav_Home"
         android:name="com.example.simplemarketlist.ui.home.HomeFragment"
         android:label="BetterFuelFragment"
         tools:layout="@layout/fragment_home">
@@ -27,7 +27,7 @@
             app:uri="https://www.slm.com.br/signup" />
         <action
             android:id="@+id/action_signUpFragment_to_homeFragment"
-            app:destination="@id/homeFragment"
+            app:destination="@id/nav_Home"
             app:popUpTo="@id/logInFragment" />
     </fragment>
     <fragment
@@ -37,11 +37,18 @@
         tools:layout="@layout/fragment_log_in">
         <action
             android:id="@+id/action_logInFragment_to_homeFragment"
-            app:destination="@id/homeFragment"
+            app:destination="@id/nav_Home"
             app:popUpTo="@id/logInFragment"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_logInFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/nav_Sobre"
+        android:name="com.example.simplemarketlist.ui.about.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
+
+
 </navigation>
