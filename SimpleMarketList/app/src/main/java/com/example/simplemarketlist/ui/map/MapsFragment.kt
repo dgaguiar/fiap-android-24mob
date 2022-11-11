@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.simplemarketlist.R
+import com.example.simplemarketlist.ui.base.auth.BaseAuthFragment
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -15,7 +16,8 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
-class MapsFragment : Fragment() {
+class MapsFragment : BaseAuthFragment() {
+    override val layout = R.layout.fragment_maps
 
     private val callback = OnMapReadyCallback { googleMap ->
 
