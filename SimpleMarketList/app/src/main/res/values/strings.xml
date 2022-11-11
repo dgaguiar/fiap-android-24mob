@@ -31,6 +31,13 @@
     <string name="default_notification_channel_id">default</string>
     <string name="default_notification_channel_name">Padrão</string>
     <string name="default_notification_channel_description">Canal padrão de notificações</string>
+    <string name="produto">Produto</string>
+    <string name="marca">Marca</string>
+    <string name="pre_o">Preço</string>
+    <string name="salvar">Salvar</string>
+    <string name="logout">LogOut</string>
+    <string name="menu">Menu</string>
+    <string name="sobre">Sobre</string>
 
 
 </resources>
