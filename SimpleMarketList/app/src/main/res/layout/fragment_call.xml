@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp"
+    tools:context=".MainActivity">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="@string/digite_um_telefone"
+        android:textAlignment="center"
+        android:textColor="@color/backgroundButton"
+        android:textSize="32sp"
+        android:textStyle="bold" />
+    <EditText
+        android:id="@+id/etNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/button"
+        android:layout_centerInParent="true"
+        android:hint="Ex.: +5511912345678"
+        android:textColorHint="#bbb"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:inputType="phone" />
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/ligar"
+        android:textColor="@color/backgroundButtonDisabled"
+        android:backgroundTint="@color/backgroundButton"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+</RelativeLayout>

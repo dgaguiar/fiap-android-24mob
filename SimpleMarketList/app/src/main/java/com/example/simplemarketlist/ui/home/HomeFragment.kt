@@ -18,6 +18,7 @@ class HomeFragment : BaseAuthFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentHomeBinding.bind(view)
+        requireContext()
         //Toast.makeText(requireContext(), args.userEmail, Toast.LENGTH_LONG).show()
 
     }
