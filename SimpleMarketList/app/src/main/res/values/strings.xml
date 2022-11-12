@@ -41,6 +41,10 @@
     <string name="sobre">Sobre</string>
     <string name="mapa">Mapa</string>
     <string name="APIKEY">AIzaSyCjp2qzlhGzTCn1pBUdJM5BuRN90aodJpE</string>
+    <string name="ligacao">Ligação</string>
+    <string name="ligar">Ligar</string>
+    <string name="digite_um_telefone">Digite um telefone</string>
+    <string name="compartilhar">Compartilhar</string>
 
 
 </resources>
