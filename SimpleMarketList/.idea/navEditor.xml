@@ -51,18 +51,6 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
-                  <entry key="callFragment">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="-389" />
-                            <option name="y" value="85" />
-                          </Point>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
                   <entry key="logInFragment">
                     <value>
                       <LayoutPositions>
@@ -85,6 +73,18 @@
                               </value>
                             </entry>
                           </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="nav_Call">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="12" />
+                            <option name="y" value="12" />
+                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>
@@ -129,6 +129,18 @@
                           <Point>
                             <option name="x" value="-145" />
                             <option name="y" value="-270" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="sahredFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-386" />
+                            <option name="y" value="44" />
                           </Point>
                         </option>
                       </LayoutPositions>

@@ -13,6 +13,9 @@
         android:id="@+id/nav_Call"
         android:title="@string/ligacao" />
     <item
+        android:id="@+id/nav_Share"
+        android:title="@string/compartilhar"/>
+    <item
         android:id="@+id/nav_LogOut"
         android:title="@string/logout"/>
 </menu>
