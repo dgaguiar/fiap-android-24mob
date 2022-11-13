@@ -25,6 +25,8 @@ class SignUpFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        hideToolBar()
         setUpView(view)
         registerObserver()
     }
@@ -55,6 +57,7 @@ class SignUpFragment : BaseFragment() {
         this.signUpViewModel.signUpState.observe(viewLifecycleOwner, Observer {
             when (it) {
                 is RequestState.Success -> {
+                    showToolBar()
                     hideLoading()
                     NavHostFragment.findNavController(this).navigate(R.id.main_nav_graph)
                 }
