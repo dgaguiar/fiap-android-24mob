@@ -17,7 +17,7 @@ class HomeViewModel: ViewModel() {
         items.postValue(list!!)
     }
 
-    fun updateTaskItem(id: UUID, name: String, value: Double) {
+    fun updateTaskItem(id: UUID, name: String, value: String) {
         val list = items.value
         val task = list!!.find { it.id == id }!!
         task.name = name

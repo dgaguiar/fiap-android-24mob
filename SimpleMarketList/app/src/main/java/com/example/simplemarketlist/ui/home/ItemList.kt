@@ -4,7 +4,7 @@ import java.util.*
 
 class ItemList (
     var name: String,
-    var value: Double,
+    var value: String,
     var id: UUID = UUID.randomUUID()
     ){
 

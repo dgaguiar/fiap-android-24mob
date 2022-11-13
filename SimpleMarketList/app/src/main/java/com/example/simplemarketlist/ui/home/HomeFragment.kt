@@ -2,6 +2,8 @@ package com.example.simplemarketlist.ui.home
 
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -23,6 +25,7 @@ class HomeFragment : BaseAuthFragment() {
     private lateinit var recycleViewHome: RecyclerView
 
     val args: HomeFragmentArgs by navArgs()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpView(view)
@@ -32,6 +35,11 @@ class HomeFragment : BaseAuthFragment() {
         recycleViewHome.layoutManager = layoutManager
         adapter = ItemAdapter()
         recycleViewHome.adapter = adapter
+
+        homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+        binding.fabAdd.setOnClickListener {
+            NewItemSheet(null).show(parentFragmentManager, "")
+        }
     }
 
     private fun setUpView(view: View) {
