@@ -1,5 +1,6 @@
 package com.example.simplemarketlist.ui.call
 
+import CustomToast
 import android.Manifest
 import android.app.Activity
 import android.content.Intent
@@ -9,10 +10,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.example.simplemarketlist.MainActivity
 import com.example.simplemarketlist.R
 import com.example.simplemarketlist.ui.base.auth.BaseAuthFragment
 
@@ -55,7 +55,7 @@ class CallFragment : BaseAuthFragment() {
                 startActivity(Intent(Intent.ACTION_CALL, Uri.parse(dial)))
             }
         } else {
-            Toast.makeText(requireContext(), "Enter Phone Number", Toast.LENGTH_SHORT).show()
+            CustomToast.warning((activity as MainActivity),"Enter Phone Number")
         }
     }
     override fun onRequestPermissionsResult(
@@ -67,7 +67,7 @@ class CallFragment : BaseAuthFragment() {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 makePhoneCall()
             } else {
-                Toast.makeText(requireContext(), "Permission DENIED", Toast.LENGTH_SHORT).show()
+                CustomToast.error((activity as MainActivity),"Permission DENIED")
             }
         }
     }

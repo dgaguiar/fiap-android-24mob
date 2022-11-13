@@ -1,28 +1,24 @@
 package com.example.simplemarketlist
 
+import CustomToast
 import android.content.ContentValues.TAG
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Window
 import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.LinearLayout
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
-import androidx.core.view.isVisible
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
-import com.google.android.material.navigation.NavigationView
-
-import com.google.firebase.iid.FirebaseInstanceIdReceiver
 import com.google.android.gms.tasks.OnCompleteListener
-import android.util.Log
-import android.widget.Toast
-import com.google.firebase.iid.internal.FirebaseInstanceIdInternal
+import com.google.android.material.navigation.NavigationView
 import com.google.firebase.messaging.FirebaseMessaging
 
-class MainActivity : AppCompatActivity(), DrawerController  {
+class MainActivity : AppCompatActivity(), DrawerController {
     lateinit var drawerLayout: DrawerLayout
     lateinit var imageView: ImageView
     lateinit var navigationView: NavigationView
@@ -41,29 +37,28 @@ class MainActivity : AppCompatActivity(), DrawerController  {
             drawerLayout.openDrawer(GravityCompat.START)
         }
 
-        /*imageView.setOnClickListener{
+        /*imageView.setOnClickListener {
             // 1
             FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
-                    // 2
-                    if (!task.isSuccessful) {
-                        Log.w(TAG, "getInstanceId failed", task.exception)
-                        return@OnCompleteListener
-                    }
-                    // 3
-                    val token = task.result
+                // 2
+                if (!task.isSuccessful) {
+                    Log.w(TAG, "getInstanceId failed", task.exception)
+                    return@OnCompleteListener
+                }
+                // 3
+                val token = task.result
 
-                    // 4
-                    //val msg = token
-                    Log.d(TAG, token)
-                    Toast.makeText(baseContext, token, Toast.LENGTH_LONG).show()
-                })
+                // 4
+                //val msg = token
+                Log.d(TAG, token)
+                CustomToast.default(this, token)
+            })
         }*/
 
         navigationView = findViewById(R.id.navigationView)
 
         navController = Navigation.findNavController(this, R.id.navHostFragment)
         NavigationUI.setupWithNavController(navigationView, navController)
-
 
     }
 
