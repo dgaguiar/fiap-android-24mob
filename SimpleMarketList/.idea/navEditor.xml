@@ -122,6 +122,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="nav_Share">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="12" />
+                            <option name="y" value="12" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="nav_Sobre">
                     <value>
                       <LayoutPositions>
@@ -129,18 +141,6 @@
                           <Point>
                             <option name="x" value="-145" />
                             <option name="y" value="-270" />
-                          </Point>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
-                  <entry key="sahredFragment">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="-386" />
-                            <option name="y" value="44" />
                           </Point>
                         </option>
                       </LayoutPositions>

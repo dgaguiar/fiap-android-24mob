@@ -38,17 +38,6 @@ class MainActivity : AppCompatActivity(), DrawerController  {
         navController = Navigation.findNavController(this, R.id.navHostFragment)
         NavigationUI.setupWithNavController(navigationView, navController)
 
-
-    }
-
-
-
-    private fun fullScreen() {
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE); supportActionBar?.hide()
-        this.window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        );
     }
 
     override fun setDrawer_locked() {
