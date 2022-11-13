@@ -8,7 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.simplemarketlist.R
 
 
-class ItemAdapter: RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
+class ItemAdapter(
+    private val items: List<ItemList>,
+    private val clickListener: ItemClickListener
+): RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
     private var products = arrayOf("produto1", "Produto 2", "produto 3")
 
@@ -18,8 +21,13 @@ class ItemAdapter: RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
+//        if (items != null) {
+//            holder.name.text = items[position].name
+//            holder.value.text = items[position].value
+//        }
+
         holder.name.text = products[position]
-        holder.value.text = "Not available"
+        holder.value.text = "teste"
     }
 
     override fun getItemCount(): Int = products.size

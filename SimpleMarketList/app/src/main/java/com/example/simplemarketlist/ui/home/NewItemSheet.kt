@@ -24,13 +24,13 @@ class NewItemSheet(var item: ItemList?) : BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         val activity = requireActivity()
         if (item != null) {
-            binding.taskTitle.text = "Edit Task"
+            binding.taskTitle.text = "Editar item"
             val editable = Editable.Factory.getInstance()
             binding.name.text = editable.newEditable(item!!.name)
             binding.value.text = editable.newEditable(item!!.value)
         } else
         {
-            binding.taskTitle.text = "New Task"
+            binding.taskTitle.text = "Novo item"
         }
 
         homeViewModel = ViewModelProvider(activity)[HomeViewModel::class.java]
@@ -45,7 +45,7 @@ class NewItemSheet(var item: ItemList?) : BottomSheetDialogFragment() {
         val value = binding.value.text.toString()
         if(item == null)
         {
-            val newTask = ItemList(name,value)
+            val newTask = ItemList(name, value)
             homeViewModel.addTaskItem(newTask)
         }
         else
