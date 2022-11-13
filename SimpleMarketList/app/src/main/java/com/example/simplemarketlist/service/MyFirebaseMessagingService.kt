@@ -1,7 +1,6 @@
 package com.example.simplemarketlist.service
 
 import android.annotation.SuppressLint
-import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -18,7 +17,7 @@ import com.google.firebase.messaging.RemoteMessage
 const val channelId = "notification_channel"
 const val channelName = "com.example.simplemarketlist"
 
-class FireBaseMessagingService : FirebaseMessagingService() {
+class MyFirebaseMessagingService : FirebaseMessagingService() {
 
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
         if (remoteMessage.getNotification() != null) {
@@ -31,7 +30,7 @@ class FireBaseMessagingService : FirebaseMessagingService() {
 
     @SuppressLint("RemoteViewLayout")
     fun getRemoteView(title: String, message: String): RemoteViews {
-        val remoteView = RemoteViews(channelName, R.layout.noification)
+        val remoteView = RemoteViews(channelName, R.layout.notification)
 
         remoteView.setTextViewText(R.id.title, title)
         remoteView.setTextViewText(R.id.message, message)
