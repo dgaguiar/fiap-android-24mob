@@ -1,5 +1,6 @@
 package com.example.simplemarketlist
 
+import android.content.ContentValues.TAG
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Window
@@ -13,6 +14,13 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import com.google.android.material.navigation.NavigationView
+
+import com.google.firebase.iid.FirebaseInstanceIdReceiver
+import com.google.android.gms.tasks.OnCompleteListener
+import android.util.Log
+import android.widget.Toast
+import com.google.firebase.iid.internal.FirebaseInstanceIdInternal
+import com.google.firebase.messaging.FirebaseMessaging
 
 class MainActivity : AppCompatActivity(), DrawerController  {
     lateinit var drawerLayout: DrawerLayout
@@ -33,6 +41,24 @@ class MainActivity : AppCompatActivity(), DrawerController  {
             drawerLayout.openDrawer(GravityCompat.START)
         }
 
+        /*imageView.setOnClickListener{
+            // 1
+            FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+                    // 2
+                    if (!task.isSuccessful) {
+                        Log.w(TAG, "getInstanceId failed", task.exception)
+                        return@OnCompleteListener
+                    }
+                    // 3
+                    val token = task.result
+
+                    // 4
+                    //val msg = token
+                    Log.d(TAG, token)
+                    Toast.makeText(baseContext, token, Toast.LENGTH_LONG).show()
+                })
+        }*/
+
         navigationView = findViewById(R.id.navigationView)
 
         navController = Navigation.findNavController(this, R.id.navHostFragment)
@@ -40,8 +66,6 @@ class MainActivity : AppCompatActivity(), DrawerController  {
 
 
     }
-
-
 
     private fun fullScreen() {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE); supportActionBar?.hide()
