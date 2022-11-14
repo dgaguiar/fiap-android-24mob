@@ -10,6 +10,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.simplemarketlist.MainActivity
@@ -22,12 +23,14 @@ class CallFragment : BaseAuthFragment() {
 
     private lateinit var button: Button
     private lateinit var editText: EditText
+    private lateinit var constraintLayout: ConstraintLayout
     private val requestCall = 1
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         setUpView(view)
+        showBanner()
     }
 
     private fun setUpView(view: View) {
@@ -36,7 +39,9 @@ class CallFragment : BaseAuthFragment() {
         button.setOnClickListener {
             makePhoneCall()
         }
+        constraintLayout = view.findViewById(R.id.containerAds)
     }
+
     private fun makePhoneCall() {
         val number: String = editText.text.toString()
         if (number.trim { it <= ' ' }.isNotEmpty()) {
@@ -55,9 +60,10 @@ class CallFragment : BaseAuthFragment() {
                 startActivity(Intent(Intent.ACTION_CALL, Uri.parse(dial)))
             }
         } else {
-            CustomToast.warning((activity as MainActivity),"Enter Phone Number")
+            CustomToast.warning((activity as MainActivity), "Enter Phone Number")
         }
     }
+
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<String?>,
@@ -67,8 +73,17 @@ class CallFragment : BaseAuthFragment() {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 makePhoneCall()
             } else {
-                CustomToast.error((activity as MainActivity),"Permission DENIED")
+                CustomToast.error((activity as MainActivity), "Permission DENIED")
             }
         }
+    }
+
+    private fun showBanner() {
+        constraintLayout.visibility = if (isFreeVersion()) View.VISIBLE
+        else View.GONE
+    }
+
+    private fun isFreeVersion(): Boolean {
+        return requireActivity().getPackageName() == "com.example.simplemarketlist.free"
     }
 }

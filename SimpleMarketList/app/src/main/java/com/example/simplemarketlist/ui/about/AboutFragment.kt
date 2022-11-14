@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.fragment.navArgs
 import com.example.simplemarketlist.R
 import com.example.simplemarketlist.databinding.FragmentAboutBinding
@@ -15,15 +16,23 @@ import com.example.simplemarketlist.ui.home.HomeFragmentArgs
 
 
 class AboutFragment : BaseAuthFragment() {
-    override val layout: Int
-        get() = R.layout.fragment_about
+    override val layout = R.layout.fragment_about
 
-    private lateinit var binding: FragmentAboutBinding
-    val args: HomeFragmentArgs by navArgs()
+    private lateinit var constraintLayout: ConstraintLayout
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentAboutBinding.bind(view)
 
+        constraintLayout = view.findViewById(R.id.containerAds)
+        showBanner()
+    }
 
+    private fun showBanner() {
+        constraintLayout.visibility = if (isFreeVersion()) View.VISIBLE
+        else View.GONE
+    }
+
+    private fun isFreeVersion(): Boolean {
+        return requireActivity().getPackageName() == "com.example.simplemarketlist.free"
     }
 }
