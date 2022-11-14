@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.simplemarketlist.R
 import com.example.simplemarketlist.ui.base.auth.BaseAuthFragment
 
@@ -18,6 +19,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 
 class MapsFragment : BaseAuthFragment() {
     override val layout = R.layout.fragment_maps
+    private lateinit var constraintLayout: ConstraintLayout
 
     private val callback = OnMapReadyCallback { googleMap ->
 
@@ -38,7 +40,18 @@ class MapsFragment : BaseAuthFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        constraintLayout = view.findViewById(R.id.containerAds)
+        showBanner()
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(callback)
+    }
+
+    private fun showBanner() {
+        constraintLayout.visibility = if (isFreeVersion()) View.VISIBLE
+        else View.GONE
+    }
+
+    private fun isFreeVersion(): Boolean {
+        return requireActivity().getPackageName() == "com.example.simplemarketlist.free"
     }
 }

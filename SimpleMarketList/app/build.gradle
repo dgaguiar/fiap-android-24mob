@@ -16,6 +16,22 @@ android {
         enabled = true
     }
 
+    buildFeatures {
+        viewBinding = true
+    }
+
+    flavorDimensions "app"
+    productFlavors {
+        pago {
+            dimension "app"
+        }
+        free {
+            dimension "app"
+            applicationIdSuffix ".free"
+            versionNameSuffix "-free"
+        }
+    }
+
     defaultConfig {
         applicationId "com.example.simplemarketlist"
         minSdk 23
