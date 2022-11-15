@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.simplemarketlist.R
 import com.example.simplemarketlist.ui.base.auth.BaseAuthFragment
 
@@ -15,11 +16,13 @@ class SahredFragment : BaseAuthFragment() {
 
     lateinit var sharedButton: Button
     lateinit var textShare: TextView
+    private lateinit var constraintLayout: ConstraintLayout
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         setUpView(view)
+        showBanner()
     }
 
     private fun setUpView(view: View) {
@@ -29,6 +32,7 @@ class SahredFragment : BaseAuthFragment() {
             val s = textShare.text.toString()
             sendMessage(s)
         }
+        constraintLayout = view.findViewById(R.id.containerAds)
     }
 
     private fun sendMessage(message: String) {
@@ -38,6 +42,15 @@ class SahredFragment : BaseAuthFragment() {
         shareIntent.putExtra(Intent.EXTRA_TEXT, message)
 
         startActivity(shareIntent)
+    }
+
+    private fun showBanner() {
+        constraintLayout.visibility = if (isFreeVersion()) View.VISIBLE
+        else View.GONE
+    }
+
+    private fun isFreeVersion(): Boolean {
+        return requireActivity().getPackageName() == "com.example.simplemarketlist.free"
     }
 
 }

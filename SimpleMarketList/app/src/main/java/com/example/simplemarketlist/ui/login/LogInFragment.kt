@@ -34,6 +34,7 @@ class LogInFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        hideToolBar()
         setUpView(view)
         registerObserver()
         registerBackPressedAction()
@@ -71,6 +72,7 @@ class LogInFragment : BaseFragment() {
 
     private fun showSuccess() {
         hideLoading()
+        showToolBar()
         val navIdForArguments = arguments?.getInt(NAVIGATION_KEY)
         if (navIdForArguments == null) {
             findNavController().navigate(R.id.main_nav_graph)

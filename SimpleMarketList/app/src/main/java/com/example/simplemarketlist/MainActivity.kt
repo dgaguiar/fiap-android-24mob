@@ -1,20 +1,19 @@
 package com.example.simplemarketlist
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Window
 import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.LinearLayout
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
-import androidx.core.view.isVisible
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
 import com.google.android.material.navigation.NavigationView
 
-class MainActivity : AppCompatActivity(), DrawerController  {
+class MainActivity : AppCompatActivity(), DrawerController {
     lateinit var drawerLayout: DrawerLayout
     lateinit var imageView: ImageView
     lateinit var navigationView: NavigationView
@@ -33,11 +32,36 @@ class MainActivity : AppCompatActivity(), DrawerController  {
             drawerLayout.openDrawer(GravityCompat.START)
         }
 
+        /*imageView.setOnClickListener {
+            // 1
+            FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+                // 2
+                if (!task.isSuccessful) {
+                    Log.w(TAG, "getInstanceId failed", task.exception)
+                    return@OnCompleteListener
+                }
+                // 3
+                val token = task.result
+
+                // 4
+                //val msg = token
+                Log.d(TAG, token)
+                CustomToast.default(this, token)
+            })
+        }*/
+
         navigationView = findViewById(R.id.navigationView)
 
         navController = Navigation.findNavController(this, R.id.navHostFragment)
         NavigationUI.setupWithNavController(navigationView, navController)
+    }
 
+    private fun fullScreen() {
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE); supportActionBar?.hide()
+        this.window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        );
     }
 
     override fun setDrawer_locked() {

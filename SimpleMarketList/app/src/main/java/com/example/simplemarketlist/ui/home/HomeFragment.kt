@@ -3,6 +3,8 @@ package com.example.simplemarketlist.ui.home
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
+import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.simplemarketlist.R
@@ -14,6 +16,8 @@ class HomeFragment : BaseAuthFragment(), ItemClickListener {
     override val layout: Int
     get() = R.layout.fragment_home
 
+    private lateinit var constraintLayout: ConstraintLayout
+
     private lateinit var binding: FragmentHomeBinding
     private lateinit var homeViewModel: HomeViewModel
 
@@ -21,8 +25,9 @@ class HomeFragment : BaseAuthFragment(), ItemClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        constraintLayout = view.findViewById(R.id.containerAds)
+        showBanner()
         binding = FragmentHomeBinding.bind(view)
-        requireContext()
 
         homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
 
@@ -44,7 +49,16 @@ class HomeFragment : BaseAuthFragment(), ItemClickListener {
     }
 
     override fun editTaskItem(taskItem: ItemList) {
+        // TODO
+    }
 
+    private fun showBanner() {
+        constraintLayout.visibility = if (isFreeVersion()) View.VISIBLE
+        else View.GONE
+    }
+
+    private fun isFreeVersion(): Boolean {
+        return requireActivity().getPackageName() == "com.example.simplemarketlist.free"
     }
 
     override fun completeTaskItem(taskItem: ItemList) {
