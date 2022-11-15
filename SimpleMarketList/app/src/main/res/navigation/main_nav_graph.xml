@@ -62,6 +62,18 @@
         android:id="@+id/nav_Share"
         android:name="com.example.simplemarketlist.ui.shared.SahredFragment"
         android:label="SahredFragment" />
+    <fragment
+        android:id="@+id/nav_LogOut"
+        android:name="com.example.simplemarketlist.ui.logout.LogOutFragment"
+        android:label="fragment_log_out"
+        tools:layout="@layout/fragment_log_out">
+        <deepLink
+            android:id="@+id/deepLink2"
+            app:uri="https://www.slm.com.br/logout" />
+        <action
+            android:id="@+id/action_logOutFragment_to_homeFragment"
+            app:destination="@id/nav_Home" />
+    </fragment>
 
 
 </navigation>
