@@ -4,10 +4,12 @@ import CustomToast
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.simplemarketlist.R
 import com.example.simplemarketlist.models.Products
 import com.example.simplemarketlist.ui.home.HomeFragment
@@ -18,6 +20,7 @@ private lateinit var tvPrdName: TextView
 private lateinit var tvPrdPrice: TextView
 private lateinit var btnUpdate: Button
 private lateinit var btnDelete: Button
+private lateinit var constraintLayout: ConstraintLayout
 
 
 class ProductDetailActivity : AppCompatActivity() {
@@ -40,6 +43,8 @@ class ProductDetailActivity : AppCompatActivity() {
                 intent.getStringExtra("prdId").toString()
             )
         }
+
+        showBanner()
     }
 
     private fun initView() {
@@ -48,6 +53,7 @@ class ProductDetailActivity : AppCompatActivity() {
         tvPrdPrice = findViewById(R.id.tvPrdPrice)
         btnUpdate = findViewById(R.id.btnUpdate)
         btnDelete = findViewById(R.id.btnDelete)
+        constraintLayout = findViewById(R.id.containerAds)
     }
 
     private fun setValuesToViews() {
@@ -120,6 +126,15 @@ class ProductDetailActivity : AppCompatActivity() {
         val dbRef = FirebaseDatabase.getInstance().getReference("Products").child(id)
         val prdInfo = Products(id, name, price)
         dbRef.setValue(prdInfo)
+    }
+
+    private fun showBanner() {
+        constraintLayout.visibility = if (isFreeVersion()) View.VISIBLE
+        else View.GONE
+    }
+
+    private fun isFreeVersion(): Boolean {
+        return this.getPackageName() == "com.example.simplemarketlist.free"
     }
 
 }
