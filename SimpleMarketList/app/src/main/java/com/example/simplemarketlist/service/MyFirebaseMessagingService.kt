@@ -34,7 +34,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
         remoteView.setTextViewText(R.id.title, title)
         remoteView.setTextViewText(R.id.message, message)
-        remoteView.setImageViewResource(R.id.app_logo, R.drawable.ic_launcher_background)
+        remoteView.setImageViewResource(R.id.app_logo, R.mipmap.ic_launcher_foreground)
 
         return remoteView
     }
@@ -49,7 +49,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
         var builder: NotificationCompat.Builder =
             NotificationCompat.Builder(applicationContext, channelId)
-                .setSmallIcon(R.drawable.ic_launcher_background)
+                .setSmallIcon(R.mipmap.ic_launcher_foreground)
                 .setAutoCancel(true)
                 .setVibrate(longArrayOf(1000, 1000, 1000, 1000))
                 .setOnlyAlertOnce(true)

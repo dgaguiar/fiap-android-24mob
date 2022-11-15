@@ -60,7 +60,7 @@ class CallFragment : BaseAuthFragment() {
                 startActivity(Intent(Intent.ACTION_CALL, Uri.parse(dial)))
             }
         } else {
-            CustomToast.warning((activity as MainActivity), "Enter Phone Number")
+            CustomToast.warning((activity as MainActivity), "Digite um número de telefone")
         }
     }
 
@@ -73,7 +73,7 @@ class CallFragment : BaseAuthFragment() {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 makePhoneCall()
             } else {
-                CustomToast.error((activity as MainActivity), "Permission DENIED")
+                CustomToast.error((activity as MainActivity), "Permissão negada")
             }
         }
     }
@@ -81,9 +81,5 @@ class CallFragment : BaseAuthFragment() {
     private fun showBanner() {
         constraintLayout.visibility = if (isFreeVersion()) View.VISIBLE
         else View.GONE
-    }
-
-    private fun isFreeVersion(): Boolean {
-        return requireActivity().getPackageName() == "com.example.simplemarketlist.free"
     }
 }

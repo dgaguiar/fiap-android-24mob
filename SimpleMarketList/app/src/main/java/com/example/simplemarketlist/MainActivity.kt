@@ -1,9 +1,6 @@
 package com.example.simplemarketlist
 
-import CustomToast
-import android.content.ContentValues.TAG
 import android.os.Bundle
-import android.util.Log
 import android.view.Window
 import android.view.WindowManager
 import android.widget.ImageView
@@ -14,9 +11,8 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.ui.NavigationUI
-import com.google.android.gms.tasks.OnCompleteListener
+import com.example.simplemarketlist.drawer.DrawerController
 import com.google.android.material.navigation.NavigationView
-import com.google.firebase.messaging.FirebaseMessaging
 
 class MainActivity : AppCompatActivity(), DrawerController {
     lateinit var drawerLayout: DrawerLayout

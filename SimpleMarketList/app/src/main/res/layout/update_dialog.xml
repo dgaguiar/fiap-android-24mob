@@ -21,7 +21,7 @@
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="@string/pre_o"
-        android:inputType="number" />
+        android:inputType="numberDecimal" />
 
     <Button
         android:id="@+id/btnUpdateData"
