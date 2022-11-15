@@ -7,7 +7,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.simplemarketlist.R
 
-
 class ItemAdapter(
     private val items: List<ItemList>,
     private val clickListener: ItemClickListener
@@ -21,16 +20,16 @@ class ItemAdapter(
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-//        if (items != null) {
-//            holder.name.text = items[position].name
-//            holder.value.text = items[position].value
-//        }
+        if (items != null) {
+            holder.name.text = items[position].name
+            holder.value.text = items[position].value
+        }
 
-        holder.name.text = products[position]
-        holder.value.text = "teste"
+//        holder.name.text = products[position]
+//        holder.value.text = "teste"
     }
 
-    override fun getItemCount(): Int = products.size
+    override fun getItemCount(): Int = items.size
 
     inner class ItemViewHolder(
         itemView: View
