@@ -27,7 +27,6 @@ class HomeFragment : BaseAuthFragment(), ItemClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setUpView(view)
         showBanner()
         setRecyclerView()
@@ -53,10 +52,6 @@ class HomeFragment : BaseAuthFragment(), ItemClickListener {
         }
     }
 
-    override fun editTaskItem(taskItem: ItemList) {
-        // TODO
-    }
-
     private fun showBanner() {
         constraintLayout.visibility = if (isFreeVersion()) View.VISIBLE
         else View.GONE
@@ -68,5 +63,9 @@ class HomeFragment : BaseAuthFragment(), ItemClickListener {
 
     override fun completeTaskItem(taskItem: ItemList) {
         homeViewModel.setCompleted(taskItem)
+    }
+
+    override fun editTaskItem(taskItem: ItemList) {
+        NewItemSheet(taskItem, homeViewModel).show(parentFragmentManager, "newTaskTag")
     }
 }

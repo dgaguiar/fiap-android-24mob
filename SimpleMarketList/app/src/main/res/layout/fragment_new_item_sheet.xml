@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".NewTaskSheet">
+    tools:context=".NewItemSheet">
 
 
     <TextView
@@ -57,8 +57,28 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginHorizontal="20dp"
-        android:backgroundTint="?attr/colorPrimary"
+        android:backgroundTint="@color/backgroundButton"
         android:textColor="?colorOnPrimary"
         android:text="Save"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/editButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="20dp"
+        android:backgroundTint="@color/backgroundButton"
+        android:textColor="?colorOnPrimary"
+        android:text="Atualizar"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/deleteButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="20dp"
+        android:backgroundTint="@color/cardview_light_background"
+        android:textColor="@color/backgroundButton"
+        android:text="Excluir"/>
 
 </LinearLayout>
