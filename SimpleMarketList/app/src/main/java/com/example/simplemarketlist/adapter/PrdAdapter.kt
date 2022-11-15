@@ -9,13 +9,25 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.simplemarketlist.R
 import com.example.simplemarketlist.models.Products
 
-class PrdAdapter(private val prdList:ArrayList<Products>): RecyclerView.Adapter<PrdAdapter.ViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : ViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_list, parent, false)
-        return ViewHolder(itemView)
+class PrdAdapter(private val prdList: ArrayList<Products>) :
+    RecyclerView.Adapter<PrdAdapter.ViewHolder>() {
+
+    private lateinit var mListener: onItemClickListener
+
+    interface onItemClickListener{
+        fun onItemClick(position: Int)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int){
+    fun setOnItemClickListener(clickListener: onItemClickListener){
+        mListener = clickListener
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_list, parent, false)
+        return ViewHolder(itemView, mListener)
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentPrd = prdList[position]
         holder.tvName.text = currentPrd.prdName
     }
@@ -24,7 +36,14 @@ class PrdAdapter(private val prdList:ArrayList<Products>): RecyclerView.Adapter<
         return prdList.size
     }
 
-    class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-        val tvName: TextView = itemView.findViewById(R.id.tv_name)
+    class ViewHolder(itemView: View, clickListener: onItemClickListener) : RecyclerView.ViewHolder(itemView) {
+
+        val tvName : TextView = itemView.findViewById(R.id.tv_name)
+
+        init {
+            itemView.setOnClickListener {
+                clickListener.onItemClick(adapterPosition)
+            }
+        }
     }
 }

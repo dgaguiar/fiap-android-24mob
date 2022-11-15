@@ -1,5 +1,6 @@
 package com.example.simplemarketlist.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
@@ -13,6 +14,7 @@ import com.example.simplemarketlist.adapter.PrdAdapter
 import com.example.simplemarketlist.databinding.FragmentHomeBinding
 import com.example.simplemarketlist.models.Products
 import com.example.simplemarketlist.ui.base.auth.BaseAuthFragment
+import com.example.simplemarketlist.ui.detail.ProductDetailActivity
 import com.google.firebase.database.*
 
 class HomeFragment : BaseAuthFragment() {
@@ -59,6 +61,22 @@ class HomeFragment : BaseAuthFragment() {
                     }
                     val mAdapter = PrdAdapter(prdList)
                     recyclerView.adapter = mAdapter
+
+                    mAdapter.setOnItemClickListener(object : PrdAdapter.onItemClickListener{
+                        override fun onItemClick(position: Int) {
+
+                            val intent = Intent(requireContext(), ProductDetailActivity::class.java)
+
+                            //put extras
+                            intent.putExtra("prdId", prdList[position].prdId)
+                            intent.putExtra("prdName", prdList[position].prdName)
+                            intent.putExtra("prdPrice", prdList[position].prdPrice)
+                            startActivity(intent)
+                        }
+
+                    })
+
+
                 }
             }
 
