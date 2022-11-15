@@ -7,41 +7,46 @@ import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.simplemarketlist.R
 import com.example.simplemarketlist.databinding.FragmentHomeBinding
 import com.example.simplemarketlist.ui.base.auth.BaseAuthFragment
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class HomeFragment : BaseAuthFragment(), ItemClickListener {
 
-    override val layout: Int
-    get() = R.layout.fragment_home
+    override val layout = R.layout.fragment_home
 
     private lateinit var constraintLayout: ConstraintLayout
 
-    private lateinit var binding: FragmentHomeBinding
     private lateinit var homeViewModel: HomeViewModel
 
-    val args: HomeFragmentArgs by navArgs()
+    private lateinit var button: FloatingActionButton
+
+    private lateinit var list: RecyclerView
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        constraintLayout = view.findViewById(R.id.containerAds)
+
+        setUpView(view)
         showBanner()
-        binding = FragmentHomeBinding.bind(view)
+        setRecyclerView()
+    }
 
+    private fun setUpView(view: View) {
+        list = view.findViewById(R.id.rv_itens)
+        constraintLayout = view.findViewById(R.id.containerAds)
         homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
-
-        binding.fabAdd.setOnClickListener {
+        button = view.findViewById(R.id.fab_add)
+        button.setOnClickListener {
             NewItemSheet(null).show(parentFragmentManager, "newTaskTag")
         }
-
-        setRecyclerView()
     }
 
     private fun setRecyclerView() {
         val homeFragment = this
         homeViewModel.items.observe(viewLifecycleOwner) {
-            binding.rvItens.apply {
+            list.apply {
                 layoutManager = LinearLayoutManager(context)
                 adapter = ItemAdapter(it, homeFragment)
             }
