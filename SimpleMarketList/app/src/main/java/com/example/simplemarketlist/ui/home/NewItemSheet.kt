@@ -10,10 +10,12 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.simplemarketlist.databinding.FragmentNewItemSheetBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class NewItemSheet(var item: ItemList?) : BottomSheetDialogFragment() {
+class NewItemSheet(
+    var item: ItemList?,
+    var homeViewModel: HomeViewModel
+    ) : BottomSheetDialogFragment() {
 
     private lateinit var binding: FragmentNewItemSheetBinding
-    private lateinit var homeViewModel: HomeViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentNewItemSheetBinding.inflate(inflater,container,false)
@@ -33,7 +35,6 @@ class NewItemSheet(var item: ItemList?) : BottomSheetDialogFragment() {
             binding.taskTitle.text = "Novo item"
         }
 
-        homeViewModel = ViewModelProvider(activity)[HomeViewModel::class.java]
         binding.saveButton.setOnClickListener {
             saveAction()
         }

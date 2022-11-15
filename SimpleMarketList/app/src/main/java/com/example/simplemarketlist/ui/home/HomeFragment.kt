@@ -39,7 +39,7 @@ class HomeFragment : BaseAuthFragment(), ItemClickListener {
         homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
         button = view.findViewById(R.id.fab_add)
         button.setOnClickListener {
-            NewItemSheet(null).show(parentFragmentManager, "newTaskTag")
+            NewItemSheet(null, homeViewModel).show(parentFragmentManager, "newTaskTag")
         }
     }
 
