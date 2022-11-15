@@ -41,4 +41,8 @@ abstract class BaseFragment : Fragment() {
     fun hideToolBar(){
         (activity as MainActivity?)!!.setDrawer_locked()
     }
+
+    fun isFreeVersion(): Boolean {
+        return requireActivity().getPackageName() == "com.example.simplemarketlist.free"
+    }
 }

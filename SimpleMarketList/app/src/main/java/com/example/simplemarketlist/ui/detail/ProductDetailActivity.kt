@@ -30,6 +30,16 @@ class ProductDetailActivity : AppCompatActivity() {
 
         initView()
         setValuesToViews()
+        showBanner()
+    }
+
+    private fun initView() {
+        tvPrdId = findViewById(R.id.tvPrdId)
+        tvPrdName = findViewById(R.id.tvPrdName)
+        tvPrdPrice = findViewById(R.id.tvPrdPrice)
+        btnUpdate = findViewById(R.id.btnUpdate)
+        btnDelete = findViewById(R.id.btnDelete)
+        constraintLayout = findViewById(R.id.containerAds)
 
         btnUpdate.setOnClickListener {
             openUpdateDialog(
@@ -43,17 +53,6 @@ class ProductDetailActivity : AppCompatActivity() {
                 intent.getStringExtra("prdId").toString()
             )
         }
-
-        showBanner()
-    }
-
-    private fun initView() {
-        tvPrdId = findViewById(R.id.tvPrdId)
-        tvPrdName = findViewById(R.id.tvPrdName)
-        tvPrdPrice = findViewById(R.id.tvPrdPrice)
-        btnUpdate = findViewById(R.id.btnUpdate)
-        btnDelete = findViewById(R.id.btnDelete)
-        constraintLayout = findViewById(R.id.containerAds)
     }
 
     private fun setValuesToViews() {

@@ -1,13 +1,13 @@
 package com.example.simplemarketlist.ui.addProduct
 
+import CustomToast
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.example.simplemarketlist.MainActivity
 import com.example.simplemarketlist.R
 import com.example.simplemarketlist.models.Products
 import com.example.simplemarketlist.ui.home.HomeFragment
@@ -26,21 +26,24 @@ class InsertionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_insertion)
 
+        setUpView()
+        showBanner()
+    }
+
+    private fun setUpView() {
+        dbRef = FirebaseDatabase.getInstance().getReference("Products")
+
         etPrdName = findViewById(R.id.etPrdName)
         etPrdPrice = findViewById(R.id.etPrdPrice)
         btnSaveData = findViewById(R.id.btnSave)
         constraintLayout = findViewById(R.id.containerAds)
 
-        dbRef = FirebaseDatabase.getInstance().getReference("Products")
-
         btnSaveData.setOnClickListener {
-            saveEmployeeData()
+            saveProductData()
         }
-
-        showBanner()
     }
 
-    private fun saveEmployeeData() {
+    private fun saveProductData() {
         val prdName = etPrdName.text.toString()
         val prdPrice = etPrdPrice.text.toString()
 
@@ -65,8 +68,7 @@ class InsertionActivity : AppCompatActivity() {
                 val intent = Intent(this, HomeFragment::class.java)
                 startActivity(intent)
             }.addOnFailureListener { err ->
-
-                CustomToast.error(this, "Error ${err.message}")
+                CustomToast.error(this, "Erro ${err.message}")
             }
     }
 

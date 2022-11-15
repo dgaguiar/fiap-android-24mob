@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.simplemarketlist.R
 import com.example.simplemarketlist.ui.base.auth.BaseAuthFragment
@@ -47,10 +46,6 @@ class SahredFragment : BaseAuthFragment() {
     private fun showBanner() {
         constraintLayout.visibility = if (isFreeVersion()) View.VISIBLE
         else View.GONE
-    }
-
-    private fun isFreeVersion(): Boolean {
-        return requireActivity().getPackageName() == "com.example.simplemarketlist.free"
     }
 
 }

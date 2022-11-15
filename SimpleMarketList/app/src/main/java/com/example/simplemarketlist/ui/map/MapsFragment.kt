@@ -1,7 +1,5 @@
 package com.example.simplemarketlist.ui.map
 
-import androidx.fragment.app.Fragment
-
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,9 +7,7 @@ import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.simplemarketlist.R
 import com.example.simplemarketlist.ui.base.auth.BaseAuthFragment
-
 import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
@@ -23,11 +19,11 @@ class MapsFragment : BaseAuthFragment() {
 
     private val callback = OnMapReadyCallback { googleMap ->
 
-        val sydney = LatLng(-23.537429442, -46.7684107199)
+        val location = LatLng(-23.537429442, -46.7684107199)
         val zoomLevel = 16f
 
-        googleMap.addMarker(MarkerOptions().position(sydney).title("Super mercado mais barato"))
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, zoomLevel))
+        googleMap.addMarker(MarkerOptions().position(location).title("Super mercado mais barato"))
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, zoomLevel))
     }
 
     override fun onCreateView(
@@ -49,9 +45,5 @@ class MapsFragment : BaseAuthFragment() {
     private fun showBanner() {
         constraintLayout.visibility = if (isFreeVersion()) View.VISIBLE
         else View.GONE
-    }
-
-    private fun isFreeVersion(): Boolean {
-        return requireActivity().getPackageName() == "com.example.simplemarketlist.free"
     }
 }

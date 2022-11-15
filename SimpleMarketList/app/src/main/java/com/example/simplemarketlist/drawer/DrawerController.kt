@@ -1,4 +1,4 @@
-package com.example.simplemarketlist
+package com.example.simplemarketlist.drawer
 
 interface DrawerController {
     public fun setDrawer_locked()
