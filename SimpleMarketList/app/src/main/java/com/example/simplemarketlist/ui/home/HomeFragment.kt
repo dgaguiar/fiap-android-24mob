@@ -13,8 +13,10 @@ import com.example.simplemarketlist.R
 import com.example.simplemarketlist.adapter.PrdAdapter
 import com.example.simplemarketlist.databinding.FragmentHomeBinding
 import com.example.simplemarketlist.models.Products
+import com.example.simplemarketlist.ui.addProduct.InsertionActivity
 import com.example.simplemarketlist.ui.base.auth.BaseAuthFragment
 import com.example.simplemarketlist.ui.detail.ProductDetailActivity
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.*
 
 class HomeFragment : BaseAuthFragment() {
@@ -22,6 +24,7 @@ class HomeFragment : BaseAuthFragment() {
 
     private lateinit var constraintLayout: ConstraintLayout
     private lateinit var recyclerView: RecyclerView
+    private lateinit var btnAdd: FloatingActionButton
     private lateinit var prdList: ArrayList<Products>
     private lateinit var dbRef: DatabaseReference
 
@@ -32,6 +35,13 @@ class HomeFragment : BaseAuthFragment() {
         recyclerView = view.findViewById(R.id.rv_itens)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.setHasFixedSize(true)
+
+        btnAdd = view.findViewById(R.id.fab_add)
+
+        btnAdd.setOnClickListener{
+            val intent = Intent(requireContext(), InsertionActivity::class.java)
+            startActivity(intent)
+        }
 
         prdList = arrayListOf<Products>()
 
